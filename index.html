@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quill Staff Page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .staff-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #eee;
+        }
+        .staff-card {
+            min-height: 420px;
+        }
+        .profile-text {
+            font-size: 0.85rem;
+            max-height: 140px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+<div class="container py-5">
+
+    <h1 class="text-center mb-5">Quill Project Team</h1>
+
+    <!-- PROJECT LEADS -->
+    <section id="project-leads">
+        <h3>Project Leads</h3>
+        <div class="row mt-3" id="leads-container"></div>
+    </section>
+
+    <hr class="my-5">
+
+    <!-- CORE STAFF -->
+    <section>
+        <h3>Core Staff</h3>
+        <div class="row mt-3" id="core-container"></div>
+    </section>
+
+    <hr class="my-5">
+
+    <!-- ASSOCIATE STAFF -->
+    <section>
+        <h3>Associate Staff</h3>
+        <div class="row mt-3" id="associate-container"></div>
+    </section>
+
+    <hr class="my-5">
+
+    <!-- FORMER CORE STAFF -->
+    <section>
+        <h3>Former Core Staff</h3>
+        <div class="row mt-3" id="former-core-container"></div>
+    </section>
+
+    <hr class="my-5">
+
+    <!-- FORMER ASSOCIATE STAFF -->
+    <section>
+        <h3>Former Associate Staff</h3>
+        <div class="row mt-3" id="former-associate-container"></div>
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const PLACEHOLDER_IMG = "https://via.placeholder.com/400x400?text=No+Photo";
+
+// GET BEST AVAILABLE IMAGE
+function resolveImage(person) {
+    return person.image_small || person.image_large || PLACEHOLDER_IMG;
+}
+
+// CARD TEMPLATE
+function staffCard(person) {
+    return `
+        <div class="col-md-3 mb-4">
+            <div class="card staff-card shadow-sm">
+                <img src="${resolveImage(person)}" class="card-img-top" alt="${person.name}">
+                <div class="card-body">
+                    <h6>${person.title ? person.title + " " : ""}${person.name}</h6>
+                    <p class="text-muted small">${person.platform_team_name || ""}</p>
+                    <p class="profile-text">${person.profile || ""}</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+fetch("data/staff.json")
+    .then(res => res.json())
+    .then(data => {
+
+        // PROJECT LEADS
+        const leadsEl = document.getElementById("leads-container");
+        data.project_leads.forEach(lead => {
+            leadsEl.innerHTML += `
+                <div class="col-md-12 p-4 bg-white border rounded shadow-sm mb-4">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4>${lead.title ? lead.title + " " : ""}${lead.name}</h4>
+                            <p class="text-muted">${lead.platform_staff_status}</p>
+                            <p>${lead.profile || ""}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="${resolveImage(lead)}" class="img-fluid rounded" alt="${lead.name}">
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // CORE STAFF
+        const coreEl = document.getElementById("core-container");
+        data.core_staff.forEach(person => coreEl.innerHTML += staffCard(person));
+
+        // ASSOCIATE STAFF
+        const assocEl = document.getElementById("associate-container");
+        data.associate_staff.forEach(person => assocEl.innerHTML += staffCard(person));
+
+        // FORMER CORE STAFF
+        const formerCoreEl = document.getElementById("former-core-container");
+        data.former_core_staff.forEach(person => formerCoreEl.innerHTML += staffCard(person));
+
+        // FORMER ASSOCIATE STAFF
+        const formerAssocEl = document.getElementById("former-associate-container");
+        data.former_associate_staff.forEach(person => formerAssocEl.innerHTML += staffCard(person));
+    });
+</script>
+
+</body>
+</html>
