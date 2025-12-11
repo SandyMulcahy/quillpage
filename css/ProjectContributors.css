@@ -161,8 +161,8 @@
 }
 .photo-small {
     flex-shrink: 0;
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     border-radius: 5px;
     overflow: hidden;
     /*box-shadow: 0 4px 20px rgba(0,0,0,0.15);*/
