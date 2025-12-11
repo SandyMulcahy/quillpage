@@ -1,0 +1,29 @@
+.scroll-box {
+    height: 120px; 
+    width: 240px;
+    overflow-y: auto;    /* enables vertical scrolling */
+    background: #f8f9fa;         
+}
+
+.carousel-control-prev-icon, /* black buttons */
+.carousel-control-next-icon {
+    filter: invert(1) brightness(0);   /* makes them black */
+    background-size: 48px 48px;
+}
+
+.carousel-title {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    background-color: #F5F5F5;
+}
+
+.hover-overlay {
+    background: rgba(186, 84, 37, 0.9);  /* dark orange overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.position-relative:hover .hover-overlay {
+    opacity: 1;
+}
+
