@@ -52,3 +52,7 @@
 .position-relative:hover .hover-overlay {
     opacity: 1;
 }
+
+.curve {
+    border-radius: 10px;
+}
