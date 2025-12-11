@@ -1,5 +1,5 @@
 .scroll-box {
-    height: 120px; 
+    height: 200px; 
     width: 240px;
     overflow-y: auto;    /* enables vertical scrolling */
     background: #f8f9fa;         
