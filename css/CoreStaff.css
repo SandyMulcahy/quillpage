@@ -47,6 +47,7 @@
     background: rgba(186, 84, 37, 0.9);  /* dark orange overlay */
     opacity: 0;
     transition: opacity 0.3s ease;
+    cursor: pointer;
 }
 
 .position-relative:hover .hover-overlay {
