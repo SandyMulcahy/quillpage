@@ -475,8 +475,30 @@
                     <div id="india" class="content-section">
                         <h3>Negotiations: Drafting the Constitution of India</h3>
                     </div>
-
+                    
                 </div>
+                <!--JS that does shows the right content when any button is selected-->
+                <script> 
+                    // Get all library buttons and content sections
+                    const buttons = document.querySelectorAll('.library-button');
+                    const contentSections = document.querySelectorAll('.content-section');
+
+                    // Add click event to each button
+                    buttons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            // Get the content ID from the button's data attribute
+                            const contentId = this.getAttribute('data-content');
+                            // Remove 'active' class from all buttons
+                            buttons.forEach(btn => btn.classList.remove('active'));
+                            // Add 'active' class to clicked button
+                            this.classList.add('active');
+                            // Hide all content sections
+                            contentSections.forEach(section => section.classList.remove('active'));
+                            // Show the matching content section
+                            document.getElementById(contentId).classList.add('active');
+                        });
+                    });
+                </script>
             </div>
         </section>
 
