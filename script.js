@@ -39,10 +39,10 @@ function loadCoreStaffCarousel() {
             slideItems += `
                 <div class="col-auto text-center p-0">
                     <div class="position-relative d-inline-block">
-                        <img src=${img} style="width:240px; height:240px;">
+                        <img class="curve" src=${img} style="width:240px; height:240px;">
                         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
                                     align-items-center justify-content-center bg-opacity-50
-                                    text-black fw-bold fs-5 hover-overlay">
+                                    text-black fw-bold fs-5 hover-overlay curve">
                             ${person.name}
                         </div>
                     </div>
