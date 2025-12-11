@@ -1,8 +1,6 @@
-.panel {
+.panel-noshadow {
     background: #ebebeb;
-    padding: 30px;
-    padding-top: 18px;
-    padding-bottom: 50px;
+    padding: 15px;
     border-radius: 15px;
 }
 
@@ -129,13 +127,12 @@
     right: -60px;
 }
 
-
 .scroll-container {
     max-height: 600px;
     overflow-y: auto;
     background: #d7d7d7;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 15px;
     max-width: 1600px;
     margin: 0 auto;
 }
