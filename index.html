@@ -92,17 +92,17 @@
                     object-fit: scale-down;
             }
             
-            .photo img.hover-image {
+            .photo img.hover-image, .photo-small img.hover-image {
                 z-index: 1;
                 opacity: 1;
             }
 
-            .photo img.main-image {
+            .photo img.main-image, .photo-small img.main-image {
                 z-index: 2;
                 opacity: 1;
             }
 
-            .photo:hover img.main-image {
+            .photo:hover img.main-image, .photo-small:hover img.main-image {
                 z-index: 2;
                 opacity: 0.14;
             }
@@ -390,8 +390,8 @@
                             }
                             .photo-small {
                                 flex-shrink: 0;
-                                width: 200px;
-                                height: 200px;
+                                width: 120px;
+                                height: 120px;
                                 border-radius: 5px;
                                 overflow: hidden;
                                 /*box-shadow: 0 4px 20px rgba(0,0,0,0.15);*/
@@ -552,6 +552,28 @@
                     </div>
 
                 </div>
+                <!--JS that does shows the right content when any button is selected-->
+                <script> 
+                    // Get all library buttons and content sections
+                    const buttons = document.querySelectorAll('.library-button');
+                    const contentSections = document.querySelectorAll('.content-section');
+
+                    // Add click event to each button
+                    buttons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            // Get the content ID from the button's data attribute
+                            const contentId = this.getAttribute('data-content');
+                            // Remove 'active' class from all buttons
+                            buttons.forEach(btn => btn.classList.remove('active'));
+                            // Add 'active' class to clicked button
+                            this.classList.add('active');
+                            // Hide all content sections
+                            contentSections.forEach(section => section.classList.remove('active'));
+                            // Show the matching content section
+                            document.getElementById(contentId).classList.add('active');
+                        });
+                    });
+                </script>
             </div>
         </section>
 
