@@ -87,7 +87,7 @@ function renderConventionsForLibrary() {
 
             slidesHTML += `
                 <div class="carousel-item ${i === 0 ? "active" : ""}">
-                    <div class="row justify-content-center gap-3">
+                    <div class="row justify-content-center gap-3 button-group">
                         ${slideItems}
                     </div>
                 </div>
