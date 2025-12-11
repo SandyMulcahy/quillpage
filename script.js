@@ -3,6 +3,7 @@ let LIBRARY_GROUPS = null;
 let CONVENTIONS = null;
 let MAPPINGS = null;
 let currentLibraryID = null;
+let currentConventionID = null;
 
 // fetch all JSON in parallel and cache results
 function loadAllJson() {
@@ -20,54 +21,49 @@ function loadAllJson() {
 }
 
 
-//GET USER DATA
-$(document).ready(function () {
-    //CORE STAFF CAROUSEL
-    $.getJSON("json/USERDATA.json", function (data) {
-        
-        let staff = data.core_staff.filter(person => person.name !== "Ruth Murray"); //MOVED RUTH TO PROJECT LEADS
-        let chunkSize = 4;
-        let slidesHTML = "";
+function loadCoreStaffCarousel() {
+    let staff = USERDATA.core_staff.filter(person => person.name !== "Ruth Murray"); //MOVED RUTH TO PROJECT LEADS
+    let chunkSize = 4;
+    let slidesHTML = "";
 
-        // Split staff into chunks of 5
-        for (let i = 0; i < staff.length; i += chunkSize) {
-            let group = staff.slice(i, i + chunkSize);
+    // Split staff into chunks of 5
+    for (let i = 0; i < staff.length; i += chunkSize) {
+        let group = staff.slice(i, i + chunkSize);
 
-            let slideItems = "";
+        let slideItems = "";
 
-            group.forEach(person => {
-                if (person.image_large == null) img = "img/blankprofile.webp"
-                else img = person.image_large
+        group.forEach(person => {
+            if (person.image_large == null) img = "img/blankprofile.webp"
+            else img = person.image_large
 
-                slideItems += `
-                    <div class="col-auto text-center p-0">
-                        <div class="position-relative d-inline-block">
-                            <img src=${img} style="width:240px; height:240px;">
-                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
-                                        align-items-center justify-content-center bg-opacity-50
-                                        text-black fw-bold fs-5 hover-overlay">
-                                ${person.name}
-                            </div>
+            slideItems += `
+                <div class="col-auto text-center p-0">
+                    <div class="position-relative d-inline-block">
+                        <img src=${img} style="width:240px; height:240px;">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
+                                    align-items-center justify-content-center bg-opacity-50
+                                    text-black fw-bold fs-5 hover-overlay">
+                            ${person.name}
                         </div>
-                        <h6 class="carousel-title">${person.name}</h6>
-                        <div class="scroll-box small">${person.profile}</div>
-                        
                     </div>
-                `;
-            });
-
-            slidesHTML += `
-                <div class="carousel-item ${i === 0 ? "active" : ""}">
-                    <div class="row justify-content-center g-0">
-                        ${slideItems}
-                    </div>
+                    <h6 class="carousel-title">${person.name}</h6>
+                    <div class="scroll-box small">${person.profile}</div>
+                    
                 </div>
             `;
-        }
+        });
 
-        $("#core-carousel-inner").html(slidesHTML);
-    });
-});
+        slidesHTML += `
+            <div class="carousel-item ${i === 0 ? "active" : ""}">
+                <div class="row justify-content-center g-0">
+                    ${slideItems}
+                </div>
+            </div>
+        `;
+    }
+
+    $("#core-carousel-inner").html(slidesHTML);
+}
 
 // render conventions for a given library id
 function renderConventionsForLibrary() {
@@ -124,7 +120,7 @@ function renderConventionsForLibrary() {
         if ($firstBtn.length) $firstBtn.addClass("active");
 }
 
-//JS that shows the right content when any button is selected
+//LIBRARY BUTTON ACTIONS
 // Get all library buttons and content sections
 const buttons = document.querySelectorAll('.library-button');
 const contentSections = document.querySelectorAll('.content-section');
@@ -146,9 +142,12 @@ buttons.forEach(button => {
 //INITIAL LOAD
 // bootstrap on page load: load json once then render default library
 $(document).ready(function () {
-  loadAllJson().done(function () {
-    // choose default library id (replace with your logic)
-    currentLibraryID = 2;
-    renderConventionsForLibrary();
-  });
+    loadAllJson().done(function () {
+        loadCoreStaffCarousel();
+
+        // choose default library and convention id 
+        currentLibraryID = 2; //American West
+        currentConventionID = 22; //utah state 1895 (2019)
+        renderConventionsForLibrary();
+    });
 });
