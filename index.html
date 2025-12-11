@@ -136,38 +136,55 @@
 
         <!-- CORE STAFF -->
         <section id="core-staff" class="mb-5">
-            <h2 class="mb-3">Core Staff</h2>
+            <div class="container panel">
+                <h2 class="mb-3">Core Staff</h2>
+                <style>
+                    .scroll-box {
+                        height: 120px; 
+                        width: 240px;
+                        overflow-y: auto;    /* enables vertical scrolling */
+                        background: #f8f9fa;         
+                    }
 
-            <style>
-                .scroll-box {
-                    height: 120px; 
-                    width: 240px;
-                    overflow-y: auto;    /* enables vertical scrolling */
-                    background: #f8f9fa;         
-                }
+                    .carousel-control-prev-icon, /* black buttons */
+                    .carousel-control-next-icon {
+                        filter: invert(1) brightness(0);   /* makes them black */
+                        background-size: 48px 48px;
+                    }
 
-                .carousel-control-prev-icon, /* black buttons */
-                .carousel-control-next-icon {
-                    filter: invert(1) brightness(0);   /* makes them black */
-                }
+                    .carousel-title {
+                        margin-top: 20px;
+                        margin-bottom: 0px;
+                        background-color: #F5F5F5;
+                    }
 
-                
-            </style>
+                    .hover-overlay {
+                        background: rgba(186, 84, 37, 0.9);  /* dark orange overlay */
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    }
 
-            <div id="coreCarousel" class="carousel slide" data-bs-ride="false">
-                <div class="carousel-inner" id="core-carousel-inner">
-                <!-- jQuery will insert slides here -->
+                    .position-relative:hover .hover-overlay {
+                        opacity: 1;
+                    }
+
+                </style>
+
+                <div id="coreCarousel" class="carousel slide" data-bs-ride="false">
+                    <div class="carousel-inner" id="core-carousel-inner">
+                    <!-- jQuery will insert slides here -->
+                    </div>
+
+                    <!-- Navigation -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#coreCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#coreCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    </button>
                 </div>
-
-                <!-- Navigation -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#coreCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#coreCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
-            </section>
+        </section>
 
         <!-- PROJECT CONTRIBUTORS -->
         <section id="contributors" class="mb-5">
@@ -178,7 +195,6 @@
                     padding-top: 18px;
                     padding-bottom: 50px;
                     border-radius: 15px;
-                    /*box-shadow: 0 4px 20px rgba(0,0,0,0.15);*/
                 }
 
                 .light {
@@ -198,7 +214,6 @@
                     border-radius: 10px;
                     text-align: justify;
                     text-justify: inter-word;
-                    /*box-shadow: 0 2px 10px rgba(0,0,0,0.05);*/
                 }
 
                 .button-group {
@@ -223,7 +238,6 @@
                     cursor: pointer;
                     transition: all 0.2s ease;
                     text-align: center;
-                    /*min-width: 50px;*/
                     max-width: 200px;
                 }
 
@@ -235,7 +249,6 @@
 
                 .library-button.active {
                     background: #d7d7d7;
-                    /*box-shadow: 0 2px 8px rgba(0,0,0,0.15);*/
                 }
 
                 .library-button.active:hover {
@@ -244,12 +257,34 @@
                     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
                 }
 
+                .convention-button {
+                    background: #f5f5f5;
+                    border: none;
+                    padding: 10px 10px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    text-align: center;
+                    max-width: 200px;
+                }
+
+                .convention-button:hover {
+                    background: #d7d7d7;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                }
+
+                .convention-button.active {
+                    background: #d7d7d7;
+                }
+
+                .convention-button.active:hover {
+                    background: #d7d7d7;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                }
+
                 .content-section {
-                    /*margin-top: 40px;
-                    padding: 40px;
-                    background: white;
-                    border-radius: 12px;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);*/
                     display: none;
                 }
 
@@ -275,6 +310,16 @@
                     gap: 30px;
                     margin-bottom: 0px;
                 }
+
+                /* Move Bootstrap carousel arrows outward */
+                #conventionCarousel .carousel-control-prev {
+                    left: -60px;
+                }
+
+                #conventionCarousel .carousel-control-next {
+                    right: -60px;
+                }
+
             </style>
             <div class="container panel">
                 <h2>Project Contributors</h2>
@@ -283,21 +328,33 @@
 
                     <!--group of buttons for the selection of the library, this needs to be updated with JS to futureproof for when more libraries are added-->
                     <div class="button-group">
-                        <button class="library-button active" data-content="american-west">Constitution Writing in the American West</button>
-                        <button class="library-button" data-content="australian">Drafting the Australian Constitution</button>
-                        <button class="library-button" data-content="writing-peace">Writing Peace</button>
-                        <button class="library-button" data-content="declaration">The Declaration of Independence</button>
-                        <button class="library-button" data-content="federal-union">Founding the Federal Union</button>
-                        <button class="library-button" data-content="civil-rights">The Civil Rights Amendments</button>
-                        <button class="library-button" data-content="india">Drafting the Constitution of India</button>
+                        <button class="library-button active" data-content="2">Constitution Writing in the American West</button>
+                        <button class="library-button" data-content="11">Drafting the Australian Constitution</button>
+                        <button class="library-button" data-content="4">Writing Peace</button>
+                        <button class="library-button" data-content="16">The Declaration of Independence</button>
+                        <button class="library-button" data-content="1">Founding the Federal Union</button>
+                        <button class="library-button" data-content="3">The Civil Rights Amendments</button>
+                        <button class="library-button" data-content="13">Drafting the Constitution of India</button>
                     </div>
 
                     <!--set of divs, one for each button, for the content that shows when each button is selected-->
-                    <div id="american-west" class="content-section active">
-                        <h3>Negotiations: Constitution Writing in the American West</h3>
+                    <div id="2" class="content-section active">
+                        <h3>Conventions</h3>
 
                         <!-- we need another button group here for all of the negotiations in the library, this will need some js to get the list of negotiations from the DB and then to get all the contributors for each one-->
-                        <!-- TO DO -->
+                        <div id="conventionCarousel" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-inner" id="convention-carousel-inner">
+                            <!-- jQuery will insert slides here -->
+                            </div>
+
+                            <!-- Navigation -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#conventionCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#conventionCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
 
                         <h3>Contributors</h3>
                         <!--scroll section-->
@@ -310,6 +367,20 @@
                                 border-radius: 8px;
                                 max-width: 1600px;
                                 margin: 0 auto;
+                            }
+                            .scroll-container::-webkit-scrollbar, .partner-group::-webkit-scrollbar {
+                                width: 12px;
+                            }
+                            .scroll-container::-webkit-scrollbar-track, .partner-group::-webkit-scrollbar-track {
+                                background: #c0c0c0;
+                                border-radius: 6px;
+                            }
+                            .scroll-container::-webkit-scrollbar-thumb, .partner-group::-webkit-scrollbar-thumb {
+                                background: #888;
+                                border-radius: 6px;
+                            }
+                            .scroll-container::-webkit-scrollbar-thumb:hover, .partner-group::-webkit-scrollbar-thumb:hover {
+                                background: #666;
                             }
                             .grid {
                                 display: grid;
@@ -479,30 +550,8 @@
                     <div id="india" class="content-section">
                         <h3>Negotiations: Drafting the Constitution of India</h3>
                     </div>
-                    
-                </div>
-                <!--JS that does shows the right content when any button is selected-->
-                <script> 
-                    // Get all library buttons and content sections
-                    const buttons = document.querySelectorAll('.library-button');
-                    const contentSections = document.querySelectorAll('.content-section');
 
-                    // Add click event to each button
-                    buttons.forEach(button => {
-                        button.addEventListener('click', function() {
-                            // Get the content ID from the button's data attribute
-                            const contentId = this.getAttribute('data-content');
-                            // Remove 'active' class from all buttons
-                            buttons.forEach(btn => btn.classList.remove('active'));
-                            // Add 'active' class to clicked button
-                            this.classList.add('active');
-                            // Hide all content sections
-                            contentSections.forEach(section => section.classList.remove('active'));
-                            // Show the matching content section
-                            document.getElementById(contentId).classList.add('active');
-                        });
-                    });
-                </script>
+                </div>
             </div>
         </section>
 
@@ -510,7 +559,7 @@
 
     <!-- FOOTER -->
     <footer class="bg-white border-top">
-        
+
     </footer>
 
     <!-- JQuery script-->
