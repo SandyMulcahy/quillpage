@@ -5,6 +5,32 @@
     background: #f8f9fa;         
 }
 
+.scroll-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+    background: #c0c0c0;
+    border-radius: 4px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#coreCarousel .carousel-control-prev {
+    left: -70px;
+}
+
+#coreCarousel .carousel-control-next {
+    right: -70px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
 .carousel-control-prev-icon, /* black buttons */
 .carousel-control-next-icon {
     filter: invert(1) brightness(0);   /* makes them black */
@@ -26,4 +52,3 @@
 .position-relative:hover .hover-overlay {
     opacity: 1;
 }
-
