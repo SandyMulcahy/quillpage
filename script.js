@@ -20,7 +20,7 @@ function loadAllJson() {
   });
 }
 
-
+//load staff cards into core staff carousel
 function loadCoreStaffCarousel() {
     let staff = USERDATA.core_staff.filter(person => person.name !== "Ruth Murray"); //MOVED RUTH TO PROJECT LEADS
     let chunkSize = 4;
@@ -123,6 +123,7 @@ function loadConventionsForLibrary() {
         currentConventionID = conventions[0].id
 }
 
+//load staff into 
 function loadContributorsForConvention() {
     //flatten staff list
     let allStaff = Object.values(USERDATA).flat().filter(item => typeof item === "object" && item.name);
@@ -133,9 +134,6 @@ function loadContributorsForConvention() {
 
     let withProfile = contributors.filter(c => c.profile && c.profile.trim() !== "");
     let withoutProfile = contributors.filter(c => !c.profile || c.profile.trim() === "");
-    console.log(contributors)
-    console.log(withProfile)
-    console.log(withoutProfile)
 
     let contributorCards = ""
     withProfile.forEach(person => {
@@ -169,23 +167,25 @@ function loadContributorsForConvention() {
 }
 
 //LIBRARY BUTTON ACTIONS
-// Get all library buttons and content sections
-const buttons = document.querySelectorAll('.library-button');
-const contentSections = document.querySelectorAll('.content-section');
-// Add click event to each button
-buttons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Get the content ID from the button's data attribute
-        const contentId = this.getAttribute('data-content');
-        currentLibraryID = Number(contentId)
-        loadConventionsForLibrary();
-        loadContributorsForConvention();
-        // Remove 'active' class from all buttons
-        buttons.forEach(btn => btn.classList.remove('active'));
-        // Add 'active' class to clicked button
-        this.classList.add('active');
+function addLibraryButtonAction() {
+    // Get all library buttons and content sections
+    const buttons = document.querySelectorAll('.library-button');
+    const contentSections = document.querySelectorAll('.content-section');
+    // Add click event to each button
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the content ID from the button's data attribute
+            const contentId = this.getAttribute('data-content');
+            currentLibraryID = Number(contentId)
+            loadConventionsForLibrary();
+            loadContributorsForConvention();
+            // Remove 'active' class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            // Add 'active' class to clicked button
+            this.classList.add('active');
+        });
     });
-});
+}
 
 
 //INITIAL LOAD
@@ -193,6 +193,7 @@ buttons.forEach(button => {
 $(document).ready(function () {
     loadAllJson().done(function () {
         loadCoreStaffCarousel();
+        addLibraryButtonAction();
 
         // choose default library and convention id 
         currentLibraryID = 2; //American West

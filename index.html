@@ -3,172 +3,13 @@
     <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Project Team</title>
+    <title>Quill Project Staff Page</title>
 
     <!-- Bootstrap 5.2.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/ProjectLeads.css">
     <link rel="stylesheet" href="css/CoreStaff.css">
     <link rel="stylesheet" href="css/ProjectContributors.css">
-
-    <style>
-        body { padding-top: 4.5rem; background: #d7d7d7;}
-        .section-title { margin-bottom: 1rem; }
-    </style>
-    </head>
-
-    <body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
-        <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Quill Page</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
-                aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        </div>
-    </nav>
-
-    <main class="container my-5">
-
-        <!-- PROJECT LEADS (STATIC) -->
-        <section id="leads" class="mb-5">        
-            <div class="container panel">
-                <h2>Director</h2>
-                <div class="person-card">
-                    <div class="position-relative d-inline-block photo">
-                        <img src="https://www.quillproject.net/resource_collections/resource_file/1037" style="width:320px; height:240px;">
-                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
-                                    align-items-center justify-content-center bg-opacity-50
-                                    text-black fw-bold fs-5 hover-overlay">
-                            Nicholas Cole
-                        </div>
-                    </div>
-                    <div class="info textpanel">
-                        <h3>Nicholas Cole</h3>
-                        <p>Dr Nicholas Cole is a Senior Research Fellow at <a href="https://www.pmb.ox.ac.uk">Pembroke College, University of Oxford</a>. Aside from the Quill Project, which he directs, he studies the political thought of the eighteenth and early nineteenth century. His particular interests are the influence of classical political thought on America's first politicians, and the search for a new 'science of politics' in post-Independence America.</p>
-                    </div>
-                </div>
-
-                <h2 class="right">Deputy Director</h2>
-                <div class="person-card reverse">
-                    <div class="position-relative d-inline-block photo">
-                        <img src="https://www.quillproject.net/resource_collections/resource_file/31834" style="width:320px; height:240px;">
-                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
-                                    align-items-center justify-content-center bg-opacity-50
-                                    text-black fw-bold fs-5 hover-overlay">
-                            Ruth Murray
-                        </div>
-                    </div>
-                    <div class="info textpanel">
-                        <h3>Ruth Murray</h3>
-                        <p>Ruth Murray is Quill's Deputy Director. She graduated from <a href="https://www.queens.ox.ac.uk">The Queen's College, Oxford</a> a long time ago and had experience in a variety of administrative roles in Oxford University before joining Quill. She assists the Director in developing Quill's strategic vision and external partnerships, and established Quill's Writing Peace research strand.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CORE STAFF -->
-        <section id="core-staff" class="mb-5">
-            <div class="container panel">
-                <h2 class="mb-3">Core Staff</h2>
-                <div id="coreCarousel" class="carousel slide" data-bs-ride="false">
-                    <div class="carousel-inner" id="core-carousel-inner">
-                    <!-- jQuery will insert slides here -->
-                    </div>
-
-                    <!-- Navigation -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#coreCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#coreCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECT CONTRIBUTORS -->
-        <section id="contributors" class="mb-5">
-            <div class="container panel">
-                <h2>Project Contributors</h2>
-                <div class="container">
-                    <h3>Libraries</h3>
-
-                    <!--group of buttons for the selection of the library, this needs to be updated with JS to futureproof for when more libraries are added-->
-                    <!--data content is the DB ID of each library-->
-                    <div class="button-group">
-                        <button class="library-button active" data-content="2">Constitution Writing in the American West</button>
-                        <button class="library-button" data-content="11">Drafting the Australian Constitution</button>
-                        <button class="library-button" data-content="4">Writing Peace</button>
-                        <button class="library-button" data-content="16">The Declaration of Independence</button>
-                        <button class="library-button" data-content="1">Founding the Federal Union</button>
-                        <button class="library-button" data-content="3">The Civil Rights Amendments</button>
-                        <button class="library-button" data-content="13">Drafting the Constitution of India</button>
-                    </div>
-
-                    
-                    <h3>Conventions</h3>
-
-                    <!-- another button group here for all of the conventions in the library -->
-                    <div id="conventionCarousel" class="carousel slide" data-bs-ride="false">
-                        <div class="carousel-inner" id="convention-carousel-inner">
-                        <!-- jQuery will insert slides here -->
-                        </div>
-
-                        <!-- Navigation -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#conventionCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#conventionCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                        </button>
-                    </div>
-
-                    <h3>Contributors</h3>
-                    <!--scroll section-->
-                    <div class="scroll-container">
-                        <div class="grid">
-                            <!-- JS inserts cards-->
-                        </div>
-                    </div>
-
-                    <div class="panel-noshadow"></div>
-                    <!-- OUR PARTNERS -->
-                    <!-- this section will need to be repeated for each of the content-sections so that the partners update depending on the library selected -->
-                    <!--Is there a partner field in the DB?-->
-                    <div id="partners" class="panel-noshadow light mt-5">
-                        <h2 class="section-title">Our Partners</h2>
-                        <div class="partner-group">
-                            <div class="partner-card">
-                                <div class="photo">
-                                    <img class="scaled" src="https://images.squarespace-cdn.com/content/v1/5bec0c4525bf02ec18038c79/1549531713153-96JPC938IUF59RABH1YQ/f_1DRDKY.png?format=2500w" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
-                                </div>
-                                <div class="info textpanel">
-                                    <p>This project collaborates closely with the <a href="https://www.uvu.edu/ccs">Center for Constitutional Studies</a> at <a href="https://www.uvu.edu">Utah Valley University</a>. Students and academics there have made invaluable contributions to the testing and development of the platform, and have assisted with the publication of the records of the 1787 Federal Convention. They are currently working on a model of the 1895 Utah State Convention.</p>
-                                </div>
-                            </div>
-                            <div class="partner-card">
-                                <div class="photo">
-                                    <img class="scaled" src="https://images.squarespace-cdn.com/content/v1/5bec0c4525bf02ec18038c79/1549531713153-96JPC938IUF59RABH1YQ/f_1DRDKY.png?format=2500w" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
-                                </div>
-                                <div class="info textpanel">
-                                    <p>This project collaborates closely with the <a href="https://www.uvu.edu/ccs">Center for Constitutional Studies</a> at <a href="https://www.uvu.edu">Utah Valley University</a>. Students and academics there have made invaluable contributions to the testing and development of the platform, and have assisted with the publication of the records of the 1787 Federal Convention. They are currently working on a model of the 1895 Utah State Convention.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-white border-top">
-
-    </footer>
 
     <!-- JQuery script-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -177,5 +18,157 @@
     <!-- Other scripts-->
     <script src="script.js"></script>
 
+    <style>
+        body { padding-top: 4.5rem; background: #d7d7d7;}
+        .section-title { margin-bottom: 1rem; }
+    </style>
+    </head>
+
+    <body>
+        <!-- NAVBAR Can make this the navbar of the actual website-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Quill Page</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+                    aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            </div>
+        </nav>
+
+        <main class="container my-5">
+
+            <!-- PROJECT LEADS (STATIC) -->
+            <section id="leads" class="mb-5">        
+                <div class="container panel">
+                    <h2>Director</h2>
+                    <div class="person-card">
+                        <div class="position-relative d-inline-block photo">
+                            <img src="https://www.quillproject.net/resource_collections/resource_file/1037" style="width:320px; height:240px;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
+                                        align-items-center justify-content-center bg-opacity-50
+                                        text-black fw-bold fs-5 hover-overlay">
+                                Nicholas Cole
+                            </div>
+                        </div>
+                        <div class="info textpanel">
+                            <h3>Nicholas Cole</h3>
+                            <p>Dr Nicholas Cole is a Senior Research Fellow at <a href="https://www.pmb.ox.ac.uk">Pembroke College, University of Oxford</a>. Aside from the Quill Project, which he directs, he studies the political thought of the eighteenth and early nineteenth century. His particular interests are the influence of classical political thought on America's first politicians, and the search for a new 'science of politics' in post-Independence America.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="right">Deputy Director</h2>
+                    <div class="person-card reverse">
+                        <div class="position-relative d-inline-block photo">
+                            <img src="https://www.quillproject.net/resource_collections/resource_file/31834" style="width:320px; height:240px;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
+                                        align-items-center justify-content-center bg-opacity-50
+                                        text-black fw-bold fs-5 hover-overlay">
+                                Ruth Murray
+                            </div>
+                        </div>
+                        <div class="info textpanel">
+                            <h3>Ruth Murray</h3>
+                            <p>Ruth Murray is Quill's Deputy Director. She graduated from <a href="https://www.queens.ox.ac.uk">The Queen's College, Oxford</a> a long time ago and had experience in a variety of administrative roles in Oxford University before joining Quill. She assists the Director in developing Quill's strategic vision and external partnerships, and established Quill's Writing Peace research strand.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CORE STAFF -->
+            <section id="core-staff" class="mb-5">
+                <div class="container panel">
+                    <h2 class="mb-3">Core Staff</h2>
+                    <div id="coreCarousel" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner" id="core-carousel-inner">
+                        <!-- jQuery will insert slides here -->
+                        </div>
+
+                        <!-- Navigation -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#coreCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#coreCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROJECT CONTRIBUTORS -->
+            <section id="contributors" class="mb-5">
+                <div class="container panel">
+                    <h2>Project Contributors</h2>
+                    <div class="container">
+                        <h3>Libraries</h3>
+
+                        <!--group of buttons for the selection of the library, this needs to be updated with JS to futureproof for when more libraries are added-->
+                        <!--data content is the DB ID of each library-->
+                        <div class="button-group">
+                            <button class="library-button active" data-content="2">Constitution Writing in the American West</button>
+                            <button class="library-button" data-content="11">Drafting the Australian Constitution</button>
+                            <button class="library-button" data-content="4">Writing Peace</button>
+                            <button class="library-button" data-content="16">The Declaration of Independence</button>
+                            <button class="library-button" data-content="1">Founding the Federal Union</button>
+                            <button class="library-button" data-content="3">The Civil Rights Amendments</button>
+                            <button class="library-button" data-content="13">Drafting the Constitution of India</button>
+                        </div>
+
+                        
+                        <h3>Conventions</h3>
+
+                        <!-- another button group here for all of the conventions in the library -->
+                        <div id="conventionCarousel" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-inner" id="convention-carousel-inner">
+                            <!-- jQuery will insert slides here -->
+                            </div>
+
+                            <!-- Navigation -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#conventionCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#conventionCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+
+                        <h3>Contributors</h3>
+                        <!--scroll section-->
+                        <div class="scroll-container">
+                            <div class="grid">
+                                <!-- JS inserts cards-->
+                            </div>
+                        </div>
+
+                        <!-- OUR PARTNERS -->
+                        <!--Is there a partner field in the DB?-->
+                        <div id="partners" class="panel-noshadow light mt-5">
+                            <h2 class="section-title">Our Partners</h2>
+                            <div class="partner-group">
+                                <div class="partner-card">
+                                    <div class="photo">
+                                        <img class="scaled" src="https://images.squarespace-cdn.com/content/v1/5bec0c4525bf02ec18038c79/1549531713153-96JPC938IUF59RABH1YQ/f_1DRDKY.png?format=2500w" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
+                                    </div>
+                                    <div class="info textpanel">
+                                        <p>This project collaborates closely with the <a href="https://www.uvu.edu/ccs">Center for Constitutional Studies</a> at <a href="https://www.uvu.edu">Utah Valley University</a>. Students and academics there have made invaluable contributions to the testing and development of the platform, and have assisted with the publication of the records of the 1787 Federal Convention. They are currently working on a model of the 1895 Utah State Convention.</p>
+                                    </div>
+                                </div>
+                                <div class="partner-card">
+                                    <div class="photo">
+                                        <img class="scaled" src="https://images.squarespace-cdn.com/content/v1/5bec0c4525bf02ec18038c79/1549531713153-96JPC938IUF59RABH1YQ/f_1DRDKY.png?format=2500w" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
+                                    </div>
+                                    <div class="info textpanel">
+                                        <p>This project collaborates closely with the <a href="https://www.uvu.edu/ccs">Center for Constitutional Studies</a> at <a href="https://www.uvu.edu">Utah Valley University</a>. Students and academics there have made invaluable contributions to the testing and development of the platform, and have assisted with the publication of the records of the 1787 Federal Convention. They are currently working on a model of the 1895 Utah State Convention.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- FOOTER -->
+        <footer class="bg-white border-top">
+        </footer>
     </body>
 </html>
