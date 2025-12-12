@@ -39,10 +39,10 @@ function loadCoreStaffCarousel() {
             slideItems += `
                 <div class="col-auto text-center p-0">
                     <div class="position-relative d-inline-block">
-                        <img class="curve" src=${img} style="width:240px; height:240px;">
+                        <img src=${img} style="width:240px; height:240px;">
                         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
                                     align-items-center justify-content-center bg-opacity-50
-                                    text-black fw-bold fs-5 hover-overlay curve">
+                                    text-black fw-bold fs-5 hover-overlay">
                             ${person.name}
                         </div>
                     </div>
@@ -66,7 +66,7 @@ function loadCoreStaffCarousel() {
 }
 
 // render conventions for a given library id
-function renderConventionsForLibrary() {
+function loadConventionsForLibrary() {
         //create list of conventions that match current library
         let conventionIDs = MAPPINGS.filter(m=>m.library_group_id === currentLibraryID).map(m=>m.convention_id)
         let conventions = CONVENTIONS.filter(c=>conventionIDs.includes(c.id))
@@ -87,7 +87,7 @@ function renderConventionsForLibrary() {
 
             slidesHTML += `
                 <div class="carousel-item ${i === 0 ? "active" : ""}">
-                    <div class="row justify-content-center gap-3 button-group">
+                    <div class="row justify-content-center gap-3">
                         ${slideItems}
                     </div>
                 </div>
@@ -109,8 +109,10 @@ function renderConventionsForLibrary() {
                 conventionButtons.forEach(btn => btn.classList.remove('active'));
                 // Mark this one as active
                 this.classList.add('active');
-                // Show its content section
+
                 const contentId = this.getAttribute('data-content');
+                currentConventionID = Number(contentId)
+                loadContributorsForConvention();
             });
         });
 
@@ -118,6 +120,52 @@ function renderConventionsForLibrary() {
         const $firstBtn = $("#convention-carousel-inner .convention-button").first();
         $("#convention-carousel-inner .convention-button").removeClass("active");
         if ($firstBtn.length) $firstBtn.addClass("active");
+        currentConventionID = conventions[0].id
+}
+
+function loadContributorsForConvention() {
+    //flatten staff list
+    let allStaff = Object.values(USERDATA).flat().filter(item => typeof item === "object" && item.name);
+
+    //create list of contributors that match current convention
+    let contributorNames = CONVENTIONS.filter(c => c.id === currentConventionID).map(c => c.editor_names)[0].split(",").map(name => name.trim()); 
+    let contributors = allStaff.filter(u=>contributorNames.includes(u.name))
+
+    let withProfile = contributors.filter(c => c.profile && c.profile.trim() !== "");
+    let withoutProfile = contributors.filter(c => !c.profile || c.profile.trim() === "");
+    console.log(contributors)
+    console.log(withProfile)
+    console.log(withoutProfile)
+
+    let contributorCards = ""
+    withProfile.forEach(person => {
+        if (person.image_small == null) img = "img/blankprofile.webp"
+        else img = person.image_small
+        contributorCards+= `<div class="contributor-card">
+        <div class="photo-small">
+            <img src=${img} alt="Contributor">
+        </div>
+        <div class="info">
+            <h4>${person.name}</h4>
+            <p>${person.profile}</p>
+        </div>
+    </div>`
+    })
+    //put non profile people last
+    withoutProfile.forEach(person => {
+        if (person.image_small == null) img = "img/blankprofile.webp"
+        else img = person.image_small
+        contributorCards+= `<div class="contributor-card">
+        <div class="photo-small">
+            <img src=${img} alt="Contributor">
+        </div>
+        <div class="info">
+            <h4>${person.name}</h4>
+        </div>
+    </div>`
+    })
+
+    $(".scroll-container .grid").html(contributorCards);
 }
 
 //LIBRARY BUTTON ACTIONS
@@ -130,7 +178,8 @@ buttons.forEach(button => {
         // Get the content ID from the button's data attribute
         const contentId = this.getAttribute('data-content');
         currentLibraryID = Number(contentId)
-        renderConventionsForLibrary();
+        loadConventionsForLibrary();
+        loadContributorsForConvention();
         // Remove 'active' class from all buttons
         buttons.forEach(btn => btn.classList.remove('active'));
         // Add 'active' class to clicked button
@@ -148,6 +197,7 @@ $(document).ready(function () {
         // choose default library and convention id 
         currentLibraryID = 2; //American West
         currentConventionID = 22; //utah state 1895 (2019)
-        renderConventionsForLibrary();
+        loadConventionsForLibrary();
+        loadContributorsForConvention();
     });
 });

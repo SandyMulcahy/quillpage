@@ -32,18 +32,14 @@
 
     <main class="container my-5">
 
-        <!-- PROJECT LEADS -->
+        <!-- PROJECT LEADS (STATIC) -->
         <section id="leads" class="mb-5">        
             <div class="container panel">
                 <h2>Director</h2>
                 <div class="person-card">
-                    <div class="position-relative d-inline-block photo">
-                        <img src="https://www.quillproject.net/resource_collections/resource_file/1037" style="width:320px; height:240px;">
-                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
-                                    align-items-center justify-content-center bg-opacity-50
-                                    text-black fw-bold fs-5 hover-overlay">
-                            Nicholas Cole
-                        </div>
+                    <div class="photo">
+                        <img class="main-image" src="https://www.quillproject.net/resource_collections/resource_file/1037" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
+                        <img class="hover-image" src="img/Nicholas Cole.png" style="max-height: 240px; max-width: 320px;">
                     </div>
                     <div class="info textpanel">
                         <h3>Nicholas Cole</h3>
@@ -53,13 +49,9 @@
 
                 <h2 class="right">Deputy Director</h2>
                 <div class="person-card reverse">
-                    <div class="position-relative d-inline-block photo">
-                        <img src="https://www.quillproject.net/resource_collections/resource_file/31834" style="width:320px; height:240px;">
-                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
-                                    align-items-center justify-content-center bg-opacity-50
-                                    text-black fw-bold fs-5 hover-overlay">
-                            Ruth Murray
-                        </div>
+                    <div class="photo">
+                        <img class="main-image" src="https://www.quillproject.net/resource_collections/resource_file/31834" style="max-height: 240px; max-width: 320px;" alt="Ruth Murray">
+                        <img class="hover-image" src="img/Ruth Murray.png" style="max-height: 240px; max-width: 320px;">
                     </div>
                     <div class="info textpanel">
                         <h3>Ruth Murray</h3>
@@ -97,6 +89,7 @@
                     <h3>Libraries</h3>
 
                     <!--group of buttons for the selection of the library, this needs to be updated with JS to futureproof for when more libraries are added-->
+                    <!--data content is the DB ID of each library-->
                     <div class="button-group">
                         <button class="library-button active" data-content="2">Constitution Writing in the American West</button>
                         <button class="library-button" data-content="11">Drafting the Australian Constitution</button>
@@ -129,94 +122,31 @@
                     <!--scroll section-->
                     <div class="scroll-container">
                         <div class="grid">
-                            <div class="contributor-card">
-                                <div class="photo-small">
-                                    <img src="https://www.quillproject.net/resource_collections/resource_file/1037" alt="Senior Editor">
-                                </div>
-                                <div class="info">
-                                    <h4>Senior Editor</h4>
-                                    <h5>Abc Def</h5>
-                                    <p>Sample Bio</p>
-                                </div>
-                            </div>
-
-                            <div class="contributor-card">
-                                <div class="photo-small">
-                                    <img src="https://www.quillproject.net/resource_collections/resource_file/1037" alt="Editor">
-                                </div>
-                                <div class="info">
-                                    <h4>Editor</h4>
-                                    <h5>Abc Def</h5>
-                                    <p>Sample Bio</p>
-                                </div>
-                            </div>
-
-                            <div class="contributor-card">
-                                <div class="photo-small">
-                                    <img src="https://www.quillproject.net/resource_collections/resource_file/1037" alt="Editor">
-                                </div>
-                                <div class="info">
-                                    <h4>Editor</h4>
-                                    <h5>Abc Def</h5>
-                                    <p>Sample Bio</p>
-                                </div>
-                            </div>
-
-                            <div class="contributor-card">
-                                <div class="photo-small">
-                                    <img src="https://www.quillproject.net/resource_collections/resource_file/1037" alt="Contributor">
-                                </div>
-                                <div class="info">
-                                    <h4>Contributor</h4>
-                                    <h5>Abc Def</h5>
-                                    <p>Sample Bio</p>
-                                </div>
-                            </div>
-
-                            <div class="contributor-card">
-                                <div class="photo-small">
-                                    <img src="https://www.quillproject.net/resource_collections/resource_file/1037" alt="Contributor">
-                                </div>
-                                <div class="info">
-                                    <h4>Contributor</h4>
-                                    <h5>Abc Def</h5>
-                                    <p>Sample Bio</p>
-                                </div>
-                            </div>
-
-                            <div class="contributor-card">
-                                <div class="photo-small">
-                                    <img src="https://www.quillproject.net/resource_collections/resource_file/1037" alt="Contributor">
-                                </div>
-                                <div class="info">
-                                    <h4>Contributor</h4>
-                                    <h5>Abc Def</h5>
-                                    <p>Sample Bio</p>
-                                </div>
-                            </div>
+                            <!-- JS inserts cards-->
                         </div>
-                        <div class="panel-noshadow dark"></div>
-                        <!-- OUR PARTNERS -->
-                        <!-- this section will need to be repeated for each of the content-sections so that the partners update depending on the library selected -->
-                        <!--Is there a partner field in the DB?-->
-                        <div id="partners" class="panel-noshadow light">
-                            <h2 class="section-title">Our Partners</h2>
-                            <div class="partner-group">
-                                <div class="partner-card">
-                                    <div class="photo">
-                                        <img class="scaled" src="https://images.squarespace-cdn.com/content/v1/5bec0c4525bf02ec18038c79/1549531713153-96JPC938IUF59RABH1YQ/f_1DRDKY.png?format=2500w" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
-                                    </div>
-                                    <div class="info textpanel">
-                                        <p>This project collaborates closely with the <a href="https://www.uvu.edu/ccs">Center for Constitutional Studies</a> at <a href="https://www.uvu.edu">Utah Valley University</a>. Students and academics there have made invaluable contributions to the testing and development of the platform, and have assisted with the publication of the records of the 1787 Federal Convention. They are currently working on a model of the 1895 Utah State Convention.</p>
-                                    </div>
+                    </div>
+
+
+                    <!-- OUR PARTNERS -->
+                    <!-- this section will need to be repeated for each of the content-sections so that the partners update depending on the library selected -->
+                    <!--Is there a partner field in the DB?-->
+                    <div id="partners" class="panel light">
+                        <h2 class="section-title">Our Partners</h2>
+                        <div class="partner-group">
+                            <div class="partner-card">
+                                <div class="photo">
+                                    <img class="scaled" src="https://images.squarespace-cdn.com/content/v1/5bec0c4525bf02ec18038c79/1549531713153-96JPC938IUF59RABH1YQ/f_1DRDKY.png?format=2500w" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
                                 </div>
-                                <div class="partner-card">
-                                    <div class="photo">
-                                        <img class="scaled" src="https://images.squarespace-cdn.com/content/v1/5bec0c4525bf02ec18038c79/1549531713153-96JPC938IUF59RABH1YQ/f_1DRDKY.png?format=2500w" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
-                                    </div>
-                                    <div class="info textpanel">
-                                        <p>This project collaborates closely with the <a href="https://www.uvu.edu/ccs">Center for Constitutional Studies</a> at <a href="https://www.uvu.edu">Utah Valley University</a>. Students and academics there have made invaluable contributions to the testing and development of the platform, and have assisted with the publication of the records of the 1787 Federal Convention. They are currently working on a model of the 1895 Utah State Convention.</p>
-                                    </div>
+                                <div class="info textpanel">
+                                    <p>This project collaborates closely with the <a href="https://www.uvu.edu/ccs">Center for Constitutional Studies</a> at <a href="https://www.uvu.edu">Utah Valley University</a>. Students and academics there have made invaluable contributions to the testing and development of the platform, and have assisted with the publication of the records of the 1787 Federal Convention. They are currently working on a model of the 1895 Utah State Convention.</p>
+                                </div>
+                            </div>
+                            <div class="partner-card">
+                                <div class="photo">
+                                    <img class="scaled" src="https://images.squarespace-cdn.com/content/v1/5bec0c4525bf02ec18038c79/1549531713153-96JPC938IUF59RABH1YQ/f_1DRDKY.png?format=2500w" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
+                                </div>
+                                <div class="info textpanel">
+                                    <p>This project collaborates closely with the <a href="https://www.uvu.edu/ccs">Center for Constitutional Studies</a> at <a href="https://www.uvu.edu">Utah Valley University</a>. Students and academics there have made invaluable contributions to the testing and development of the platform, and have assisted with the publication of the records of the 1787 Federal Convention. They are currently working on a model of the 1895 Utah State Convention.</p>
                                 </div>
                             </div>
                         </div>
