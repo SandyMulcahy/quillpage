@@ -37,9 +37,13 @@
             <div class="container panel">
                 <h2>Director</h2>
                 <div class="person-card">
-                    <div class="photo">
-                        <img class="main-image" src="https://www.quillproject.net/resource_collections/resource_file/1037" style="max-height: 240px; max-width: 320px;" alt="Nicholas Cole">
-                        <img class="hover-image" src="img/Nicholas Cole.png" style="max-height: 240px; max-width: 320px;">
+                    <div class="position-relative d-inline-block photo">
+                        <img src="https://www.quillproject.net/resource_collections/resource_file/1037" style="width:320px; height:240px;">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
+                                    align-items-center justify-content-center bg-opacity-50
+                                    text-black fw-bold fs-5 hover-overlay">
+                            Nicholas Cole
+                        </div>
                     </div>
                     <div class="info textpanel">
                         <h3>Nicholas Cole</h3>
@@ -49,9 +53,13 @@
 
                 <h2 class="right">Deputy Director</h2>
                 <div class="person-card reverse">
-                    <div class="photo">
-                        <img class="main-image" src="https://www.quillproject.net/resource_collections/resource_file/31834" style="max-height: 240px; max-width: 320px;" alt="Ruth Murray">
-                        <img class="hover-image" src="img/Ruth Murray.png" style="max-height: 240px; max-width: 320px;">
+                    <div class="position-relative d-inline-block photo">
+                        <img src="https://www.quillproject.net/resource_collections/resource_file/31834" style="width:320px; height:240px;">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex 
+                                    align-items-center justify-content-center bg-opacity-50
+                                    text-black fw-bold fs-5 hover-overlay">
+                            Ruth Murray
+                        </div>
                     </div>
                     <div class="info textpanel">
                         <h3>Ruth Murray</h3>
@@ -103,7 +111,7 @@
                     
                     <h3>Conventions</h3>
 
-                    <!-- we need another button group here for all of the negotiations in the library, this will need some js to get the list of negotiations from the DB and then to get all the contributors for each one-->
+                    <!-- another button group here for all of the conventions in the library -->
                     <div id="conventionCarousel" class="carousel slide" data-bs-ride="false">
                         <div class="carousel-inner" id="convention-carousel-inner">
                         <!-- jQuery will insert slides here -->
@@ -126,11 +134,11 @@
                         </div>
                     </div>
 
-
+                    <div class="panel-noshadow"></div>
                     <!-- OUR PARTNERS -->
                     <!-- this section will need to be repeated for each of the content-sections so that the partners update depending on the library selected -->
                     <!--Is there a partner field in the DB?-->
-                    <div id="partners" class="panel light">
+                    <div id="partners" class="panel-noshadow light">
                         <h2 class="section-title">Our Partners</h2>
                         <div class="partner-group">
                             <div class="partner-card">
