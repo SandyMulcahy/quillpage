@@ -47,7 +47,7 @@ function loadCoreStaffCarousel() {
                         </div>
                     </div>
                     <h6 class="carousel-title">${person.name}</h6>
-                    <div class="scroll-box small">${person.profile}</div>
+                    <div class="scroll-box no-scrollbar small">${person.profile}</div>
                     
                 </div>
             `;
