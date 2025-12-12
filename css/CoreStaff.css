@@ -1,5 +1,5 @@
 .scroll-box {
-    height: 200px; 
+    height: 120px; 
     width: 240px;
     overflow-y: auto;    /* enables vertical scrolling */
     background: #f8f9fa;         
@@ -31,6 +31,10 @@
     background: #666;
 }
 
+.no-scrollbar::-webkit-scrollbar { /*turn off scrollbar for staff carousel */
+    display: none;
+}
+
 .carousel-control-prev-icon, /* black buttons */
 .carousel-control-next-icon {
     filter: invert(1) brightness(0);   /* makes them black */
@@ -47,13 +51,8 @@
     background: rgba(186, 84, 37, 0.9);  /* dark orange overlay */
     opacity: 0;
     transition: opacity 0.3s ease;
-    cursor: pointer;
 }
 
 .position-relative:hover .hover-overlay {
     opacity: 1;
-}
-
-.curve {
-    border-radius: 10px;
 }
